@@ -1,0 +1,40 @@
+
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<div class="container well">
+	<form:form action="create" class="form-horizontal" method="post" role="form">
+		<div class="row">
+			<div class="form-group input-group-sm col-md-8">
+			    <label for="givenName">Given Name</label>
+			    <input type="text" class="form-control" id="givenName" name="givenName" placeholder="Enter given name"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group input-group-sm col-md-8">
+			    <label for="familyName">Family Name</label>
+			    <input type="text" class="form-control" id="familyName" name="familyName" placeholder="Enter family name"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group input-group-sm col-md-8">
+			    <label for="gender">Gender</label>
+			    <select class="form-control" id="gender" name="gender">
+				  <option>Female</option>
+				  <option>Male</option>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group input-group-sm col-md-8">
+			    <label for="exampleInputEmail1">Email address</label>
+			    <input type="email" class="form-control" id="eamil" name="email" placeholder="Enter email"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group input-group-sm col-md-8">
+			    <label for="homepage">Homepage URL</label>
+			    <input type="text" class="form-control" id="homepage" name="homepage" placeholder="Enter URL"/>
+			</div>
+		</div>
+		<button type="submit" class="btn btn-default">Save</button>
+	</form:form>
+</div>

@@ -1,0 +1,8 @@
+
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+<div class="navbar navbar-fixed-bottom">
+	<p class="pull-right"><a href="http://www.giraff.se"><img class="img-responsive img-rounded" src="${pageContext.request.contextPath}/resources/images/GiraffLogo.png"/></a></p>  
+</div>
