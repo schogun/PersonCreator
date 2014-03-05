@@ -8,7 +8,7 @@
 </head>
 <body>
 	<%@ include file="fragment/header.jspf" %>
-	
+<div class="container">	
 	<c:if test="${not empty person}">
 		<legend><spring:escapeBody htmlEscape="true">${person.givenName} ${person.familyName}</spring:escapeBody></legend>
 		
@@ -32,5 +32,6 @@
 		</div>
 	</c:if>
 	<%@ include file="fragment/footer.jspf" %>
+</div>
 </body>
 </html>

@@ -4,10 +4,12 @@
 <html lang="en">
 <head>
 	<title>Person List</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 	<%@ include file="fragment/header.jspf" %>
+<div class="container">
 	<legend>Person List</legend>
 	<c:if test="${not empty personList}">
 			<table class="table">
@@ -29,12 +31,16 @@
 							<td><spring:escapeBody htmlEscape="true">${person.gender}</spring:escapeBody></td>
 							<td><spring:escapeBody htmlEscape="true">${person.email}</spring:escapeBody></td>
 							<td><spring:escapeBody htmlEscape="true">${person.homepage}</spring:escapeBody></td>
-							<td><a href="${pageContext.request.contextPath}/delete/${person.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
+							<td>
+								<a href="${pageContext.request.contextPath}/delete/${person.id}"><span class="glyphicon glyphicon-trash"></span></a>&nbsp;
+								<a href="${pageContext.request.contextPath}/view/json/${person.id}" title="Export to JSON"><span class="glyphicon glyphicon-export"></span></a>
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</c:if>
 	<%@ include file="fragment/footer.jspf" %>
+</div>
 </body>
 </html>

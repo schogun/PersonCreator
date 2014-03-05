@@ -39,12 +39,13 @@ public class PersonController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_JSON_VALUE )
+	@RequestMapping(value = "/", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_JSON_VALUE )
 	@ResponseBody
     @ResponseStatus(value = HttpStatus.CREATED)
 	public String xmlCreate(Person person, HttpServletResponse response) {
 		logger.info("Create person from XML");
 		
+		//this doesn't work at the moment, most browsers only supports GET and POST...
 		personManager.persist(person);
 		Gson gson = new Gson();
 		String personString = gson.toJson(person);
@@ -64,6 +65,20 @@ public class PersonController {
 		ModelAndView mv = new ModelAndView("viewPerson");
 		mv.addObject(person);
 		return mv;
+	}
+	
+	@RequestMapping(value = "/view/json/{personId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String viewJson(@PathVariable("personId") long personId, HttpServletResponse response) {
+		
+		Gson gson = new Gson();
+		
+		Person person = personManager.getPersonById(personId);
+		
+		String jsonString = gson.toJson(person);
+		
+		response.setContentType("application/json");
+		return jsonString;
 	}
 	
 	@RequestMapping(value = "/delete/{personId}", method = RequestMethod.GET)
