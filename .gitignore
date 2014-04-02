@@ -28,4 +28,10 @@ SESSIONS.ser
 .project
 .externalToolBuilders
 *.bak
+
+#IntelliJ Idea
 *.iml
+*.ipr
+*.iws
+.idea/
+.settings/
