@@ -21,7 +21,7 @@
 		<div class="panel panel-default">
 		  <div class="panel-heading">Email adress</div>
 		  <div class="panel-body">
-		    <spring:escapeBody htmlEscape="true">${person.email}</spring:escapeBody>
+		    <spring:escapeBody htmlEscape="true">${person.mbox}</spring:escapeBody>
 		  </div>
 		</div>	
 		<div class="panel panel-default">

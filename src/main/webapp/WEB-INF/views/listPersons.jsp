@@ -29,7 +29,7 @@
 							<td><spring:escapeBody htmlEscape="true">${person.givenName}</spring:escapeBody></td>
 							<td><spring:escapeBody htmlEscape="true">${person.familyName}</spring:escapeBody></td>
 							<td><spring:escapeBody htmlEscape="true">${person.gender}</spring:escapeBody></td>
-							<td><spring:escapeBody htmlEscape="true">${person.email}</spring:escapeBody></td>
+							<td><spring:escapeBody htmlEscape="true">${person.mbox}</spring:escapeBody></td>
 							<td><spring:escapeBody htmlEscape="true">${person.homepage}</spring:escapeBody></td>
 							<td>
 								<a href="${pageContext.request.contextPath}/delete/${person.id}"><span class="glyphicon glyphicon-trash"></span></a>&nbsp;

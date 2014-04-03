@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,22 +38,6 @@ public class PersonController {
 		
 		
 		return "home";
-	}
-	
-	@RequestMapping(value = "/", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_JSON_VALUE )
-	@ResponseBody
-    @ResponseStatus(value = HttpStatus.CREATED)
-	public String xmlCreate(Person person, HttpServletResponse response) {
-		logger.info("Create person from XML");
-		
-		//this doesn't work at the moment, most browsers only supports GET and POST...
-		personManager.persist(person);
-		Gson gson = new Gson();
-		String personString = gson.toJson(person);
-
-		response.setContentType("application/json");
-		return personString;
-		
 	}
 	
 	@RequestMapping(value = "/view/{personId}", method = RequestMethod.GET)
@@ -118,13 +103,13 @@ public class PersonController {
 		return listString;
 	}
 	
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	@RequestMapping(value = "/createPerson", method = RequestMethod.POST)
 	public ModelAndView create(HttpServletRequest request, HttpServletResponse response) {
 		logger.info("Post to create person.");
 		
 		String givenName = request.getParameter("givenName");
 		String familyName = request.getParameter("familyName");
-		String email = request.getParameter("email");
+		String email = request.getParameter("mbox");
 		String homepage = request.getParameter("homepage");
 		String gender = request.getParameter("gender");
 		
@@ -139,7 +124,7 @@ public class PersonController {
 		}
 		
 		
-		person.setEmail(email);
+		person.setMbox(email);
 		person.setHomepage(homepage);
 		
 		personManager.persist(person);

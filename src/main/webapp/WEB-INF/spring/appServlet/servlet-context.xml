@@ -23,14 +23,15 @@
 	      </beans:property>
 	  </beans:bean>
 	 
+	 
 	  <!-- Add Transaction support --> 
-	  <beans:bean id="myTxManager"
+	  <beans:bean id="transactionManager"
 	     class="org.springframework.orm.jpa.JpaTransactionManager">
 	        <beans:property name="entityManagerFactory" ref="emf"/>
 	  </beans:bean>
 	 
 	 <!-- Use @Transaction annotations for managing transactions -->
-  	<tx:annotation-driven transaction-manager="myTxManager" />
+  	<tx:annotation-driven transaction-manager="transactionManager" />
 	 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />

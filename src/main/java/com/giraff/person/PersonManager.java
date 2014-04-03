@@ -3,6 +3,7 @@ package com.giraff.person;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.FlushModeType;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
@@ -23,7 +24,7 @@ public class PersonManager {
     public void persist(Person person) {
         try{
         	em.persist(person);
-        	
+        	em.flush();
         }catch(Exception e){
         	logger.error(e.getMessage());
         }
@@ -40,6 +41,7 @@ public class PersonManager {
 	public void upate(Person person) {
         try{
         	em.merge(person);
+        	em.flush();
         }catch(Exception e){
         	logger.error(e.getMessage());
         }
@@ -57,6 +59,7 @@ public class PersonManager {
         try{
         	Person person = getPersonById(id);
         	em.remove(person);
+        	em.flush();
         }catch(Exception e){
         	logger.error(e.getMessage());
         }
@@ -64,7 +67,7 @@ public class PersonManager {
         	try {
 				em.close();
 			} catch (Exception e) {
-				logger.error("Could not delete person connection", e);
+				logger.error("Could not close person connection", e);
 			}
         }
     }

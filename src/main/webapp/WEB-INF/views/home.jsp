@@ -13,17 +13,7 @@
 	
 	<%@ include file="fragment/personForm.jspf" %>
 	
-	<div class="container well">
-		<form:form action="${pageContext.request.contextPath}" class="form-horizontal" enctype="multipart/form-data" method="put" role="form">
-			<div class="row">
-				<div class="form-group input-group-sm col-md-8">
-				    <label for="uploadFile">Upload xml-file</label>
-				    <input type="file" id="xmlFile" name="xmlFile"/>
-				    <input type="submit" value="Upload"/>
-				</div>
-			</div>
-		</form:form>
-	</div>
+
 	<%@ include file="fragment/footer.jspf" %>
 </div>
 </body>
